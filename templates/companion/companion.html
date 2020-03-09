@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dororo</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'companion/styles.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Teko:300,400|Ubuntu:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="cabezote">
+    <div class="logo">
+        <img src="{% static "companion/images/logo.png" %}" alt="logo de Hyakkimaru bodys">
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="{% url "index" %}">Inicio</a></li>
+            <li><a href="{% url "get_fights" %}">Peleas</a></li>
+            <li><a href="{% url "get_demons" %}">Demonios</a></li>
+            <li><a class="active" href="{% url "get_companion_items" %}">Dororo</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="seccion1">
+    <div class="titulo">
+        <h1>Dororo</h1>
+        <h3>Objetos que posee Dororo</h3>
+    </div>
+
+
+    <div class="container">
+        <div class="izq">
+            <img src="{% static "companion/images/objetos.png" %}" alt="Cuadro con mulitples objetos como una mazana, cuchillo, etc.">
+        </div>
+
+        <div class="der">
+            <img src="{% static "companion/images/dororo.png" %}" alt="niño de color piel con atuendos de color verde">
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

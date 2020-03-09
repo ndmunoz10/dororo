@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/styles.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Teko:300,400|Ubuntu:400,700&display=swap" rel="stylesheet">
+    </head>
+<body>
+
+<header class="cabezote">
+    <div class="logo">
+        <img src="{% static "home/images/logo.png" %}" alt="</a>">
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a class="active" href="{% url "index" %}">Inicio</a></li>
+            <li><a href="{% url "get_fights" %}">Peleas</a></li>
+            <li><a href="{% url "get_demons" %}">Demonios</a></li>
+            <li><a href="{% url "get_companion_items" %}">Dororo</a></li>
+        </ul>
+    </nav>
+</header>
+
+   <section id="sec1">
+       <p>
+           Ayuda a Hyakkimaru a consultar
+donde estan los demonios que
+tienen su cuerpo y revisa los
+articulos de Dororo para saber
+si no ha hecho fechorias.
+       </p>
+   </section>
+
+</body>
+</html>
