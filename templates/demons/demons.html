@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demonios</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'demons/styles.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Teko:300,400|Ubuntu:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="cabezote">
+    <div class="logo">
+        <img src="{% static "demons/images/logo.png" %}" alt="logo de Hyakkimaru bodys">
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="{% url "index" %}">Inicio</a></li>
+            <li><a href="{% url "get_fights" %}">Peleas</a></li>
+            <li><a class="active" href="{% url "get_demons" %}">Demonios</a></li>
+            <li><a href="{% url "get_companion_items" %}">Dororo</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="seccion1">
+    <div class="titulo">
+        <h1>Demonios</h1>
+        <h3>Registro de los demonios y la parte del cuerpo que poseen</h3>
+    </div>
+
+    <div id="header-item-center">
+        <form method="post" action="{% url 'search_demons' %}">
+            {% csrf_token %}
+            <label for="prisoner_search"></label>
+            <input id="prisoner_search" type="text" name="user_input">
+            <input type="submit" value="Buscar"/>
+        </form>
+    </div>
+
+    {% if demon_list %}
+        <table class="tabla">
+            <tr>
+                <th>Parte del cuerpo</th>
+                <th class="center">Lugar</th>
+                <th>Demonio</th>
+            </tr>
+
+            {% for demon in demon_list %}
+                <tr>
+                    <td>{{ demon.body_part }}</td>
+                    <td class="center2">{{ demon.location_name }}</td>
+                    <td><img src="{{ demon.image }}" alt="{{ demon.body_part }}"></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</section>
+
+</body>
+</html>
